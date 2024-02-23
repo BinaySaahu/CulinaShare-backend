@@ -95,11 +95,14 @@ const addToFavorites = async (req,res)=>{
 }
 const addRecipe= async (req,res)=>{
 
-  let {name,description,author,time,category,ingredient,method} = req.body
-  let s = ingredient.split('/,(?<!\\)/g')
-  ingredient = s;
-  s = method.split('/,(?<!\\)/g')
-  method = s
+  const {name,description,author,time,category,ingredient,method} = req.body
+  // var v1 = ingredient.toString()
+  // var v2 = method.toString()
+  // var s = v1.split(",")
+  // var m = v2.split(",")
+
+  console.log(ingredient)
+  console.log(method)
   try {
     const newRecipe = new Recipes({
       Name:name,
@@ -117,6 +120,22 @@ const addRecipe= async (req,res)=>{
   }
 
 }
+
+// const split = (arr)=>{
+//   let finalArr = []
+//   let str = ""
+//   for (let index = 0; index < arr.length; index++) {
+//     if(arr[index] === ','){
+//       finalArr.push(str)
+//       str = ""
+//     }
+//     else{
+//       str = str + arr[index]
+//     }
+//   }
+//   finalArr.push(str)
+//   return finalArr
+// }
 
 
 
