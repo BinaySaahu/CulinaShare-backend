@@ -8,7 +8,7 @@ const registerController = async (req, res) => {
 
   console.log('Register req recieved for: ',email)
 
-  const user = await User.findOne({ Email: email });
+  const user = await User.findOne({ email: email });
   if (user) {
     return res.status(400).json({ message: "User already exists", code: 1 });
   } else {
